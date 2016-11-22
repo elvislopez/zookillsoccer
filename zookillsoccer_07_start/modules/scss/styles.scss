@@ -1,13 +1,15 @@
 /* SASS FILE FOR ZOOKILLSOCCER */
 
 $primaryColor: #eeffcc;
-$secondaryColor: #ddd;
+$secondayColor: #ddd;
 $tertiaryColor: #efe;
 
 body {
 	background-color: $tertiaryColor;
 }
 
-.app-screen {
+/* initially, hide all the screens */
+.app-screen
+{
 	display:none;
 }
