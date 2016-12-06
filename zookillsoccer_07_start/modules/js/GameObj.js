@@ -1,6 +1,6 @@
 export default class GameObj {
 
-	//insherits form generic Javascript Object;
+	//inherits from generic Javascript Object;
 
 	constructor ( name ) {
 
@@ -12,46 +12,101 @@ export default class GameObj {
 
 	} // end of constructor
 
-
-	/**
-	 *get the unique ID value for an object.
+	/** 
+	 * get the unique ID value for an object.
 	 * @returns {String} the unique id, in uuid format.
 	 */
-
 	getId () {
-
 		return this.id;
-
-/**
-*get the name assigned to this object.
-* @returns {String} the name.
-*/
-
 	}
 
-	getName () {
-
-			return this.name;
-	}
-
-
-	/**
-	* set the object's name to a new value.
-	*@param {String} newName the new name to use.
-	*/
-	setName ( newName ) {
-
-			this.name = newName;
-
-	}
-	/**
-	 * Generate a unique 
-	 *@link
-	 *@return
+	/** 
+	 * get the name assigned to this object.
+	 * @returns {String} the name.
 	 */
-/** 
+	getName () {
+		return this.name;
+	}
+
+	/** 
+	 * set the object's name to a new value.
+	 * @param {String} newName the new name to use.
+	 */
+	setName ( newName ) {
+		this.name = newName;
+	}
+
+	/**
+	* make the onscreen element visible via CSS.
+	*/
+	show () {
+
+		this.dom.style.display = 'block';
+
+	}
+
+	/*
+	*
+	*/
+
+	hide () {
+
+		this.dom.style.display = 'none';
+
+	}
+
+
+
+	/** 
+	 * Load an image from the drive, and set the 
+	 * css background image property to this image
+	 * @param {String} imgPath the path to the image on the website.
+	 */
+	setBackgroundImage( imgPath ) {
+
+		this.dom.style.backgroundImage = "url('" + imgPath + "')";
+
+	}
+
+	setForegroundImage( imgPath ) {
+
+		let img = new Image();
+
+		img.src = imgPath;
+
+		this.dom.appendChild( img );
+
+	}
+
+	/**
+	* set the size of an object, in pixels.
+	* @param {Number} width the width, in pixels
+	* @param {Number} height the height, in pixels
+	*/
+	setSize( width, height ) {
+
+		this.dom.style.width = width + 'px';
+		this.dom.style.height = height + 'px';
+
+	}
+
+	/**
+	* set position of an object, relative to the
+	* enclosing Screen object.
+	* @param {Number} top the top corrdinate of the object, in pixels.
+	* @param {Number} left the left corrdinate of the object, in pixels.
+	*/
+	setPosition( top, left ) {
+
+		this.dom.style.top = top + 'px';
+		this.dom.style.left = left + 'px';
+
+	}
+
+    /** 
      * Generate a unique ID for every game object.
      * @link http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+	 * @returns {String} the unique ID in uuid format.
      */
     setId () {
         var d = new Date().getTime();
@@ -64,6 +119,7 @@ export default class GameObj {
             return (c=='x' ? r : (r&0x3|0x8)).toString(16);
         });
         return uuid;
-	
-	    } // end of setId
-    } // end of class
+
+    } // end of setId
+
+} // end of class

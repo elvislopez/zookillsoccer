@@ -2,8 +2,8 @@
 import GameObj from './GameObj.js';
 
 // Screen objects.
-import Screen from './Screen.js';
-import StartScreen from './StartScreen.js'; //never directly visible, used to construct visible screens.
+import Screen from './Screen.js'; //never directly visible, used to construct visible screens.
+import StartScreen from './StartScreen.js';
 import GameScreen from './GameScreen.js';
 import WonScreen from './WonScreen.js';
 import LostScreen from './LostScreen.js';
@@ -12,40 +12,49 @@ import LostScreen from './LostScreen.js';
 import HUD from './HUD.js'; //never directly visible, used to construct visible screens.
 import Score from './Score.js';
 
-// Static Ojbects.
-import Static from './Static.js';
-import Zoo from './Zoo.js';
-import Cages from './Cages.js';
-
-
+// Static Objects.
 
 // Dynamic Objects.
-import Dynamic from './Dynamic.js';
-import Animal from './Animal.js';
-import Trump from './Trump.js';
-import Player from './Player.js';
-
-
 
 console.log('loading game.');
 
-window.startScreen = new StartScreen('Zookill Start');
-window.gameScreen = new GameScreen('Zookill Game');
-window.lostScreen = new LostScreen('Zookill Lost');
-window.wonScreen = new WonScreen('Zookill Won');
+// Global storage of all screens created.
+
+// NOTE: convert the 'window.' to 'let' since we don't 
+// NOTE: want to run globally anymore.
+ 
+window.gameScreens = {};
+
+let startScreen = new StartScreen('start', window.gameScreens );
+window.gameScreens[ 'start'] = startScreen;
+
+let gameScreen = new GameScreen('game', window.gameScreens );
+window.gameScreens[ 'game' ] = gameScreen; 
+
+let wonScreen = new WonScreen('won', window.gameScreens );
+window.gameScreens[ 'won' ] = wonScreen;
+
+let lostScreen = new LostScreen('lost', window.gameScreens );
+window.gameScreens[ 'lost' ] = lostScreen;
+
+console.log(" gameScreens:" + typeof window.gameScreens)
+
 window.score = new Score('game score object');
-window.zoo = new Zoo('zoo');
-window.cages = new Cages('cages');
-window.animal = new Animal('Zookill Animal');
-window.trump = new Trump('Zookill Trump');
-window.player = new Player('player');
+
+// START THE GAME...
+
+// Attach event listeners to the buttons on the start screen.
+// Specify what each button does in code.
+
+// Make the start screen visible
+startScreen.show();
 
 
-// Create a generic GameObj
 
-//window.obj1 = new GameObj('donald trump');
 
-//window.obj2 = new Screen('start screen');
 
-//window.obj3 = new HUD('game score');
+
+
+
+
 
