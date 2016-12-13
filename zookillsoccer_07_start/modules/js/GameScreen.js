@@ -37,13 +37,19 @@ export default class GameScreen extends Screen {
 
 		this.dom.appendChild( this.zoo.dom );
 
-		// add a Trump
+		// add a Trump at
+		// ??? WHT WAS STYLE NOT DEFINED HERE?
 
-		this.trump = new Trump( ' Donald Presidentia Trump');
+		this.trump = new Trump( ' Donald Presidentia Trump', 440, 245 );
 
-		// add a player
+		// add a player at y = 500, x = 245 pixels
 
-		this.player = new Player( 'myself' );
+
+		this.player = new Player( 'myself', 500, 245, this.trump );
+
+		// add a lion 
+
+
 
 		// add 4 Cages
 

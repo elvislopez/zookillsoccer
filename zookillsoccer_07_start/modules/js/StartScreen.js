@@ -24,7 +24,7 @@ export default class StartScreen extends Screen {
 
 		this.startButton.addEventListener( 'click', () => {
 
-			alert(' I am in screen:' + this.name );
+			/////////////alert(' I am in screen:' + this.name );
 
 			this.screens[ 'start' ].hide(); // hide myself
 

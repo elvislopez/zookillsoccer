@@ -25,23 +25,20 @@ export default class Zoo extends Static{
 
 		this.cages = [];
 
-		this.cages.push( new Cage( 'Cage #1') ); // or, this.cages[0] 
-		this.cages.push( new Cage( 'Cage #2') );
-		this.cages.push( new Cage( 'Cage #3') );
-		this.cages.push( new Cage( 'Cage #4') );
+		this.cages.push( new Cage( 'Cage #1', 'cage1') ); // or, this.cages[0] 
+		this.cages.push( new Cage( 'Cage #2', 'cage2') );
+		this.cages.push( new Cage( 'Cage #3', 'cage3') );
+		this.cages.push( new Cage( 'Cage #4', 'cage4') );
 
 		// Make cages visible by attaching them inside the Zoo's HTML <div>.
 
-		for ( let i = 0; i < this.cages.length; i++) {
-			this.dom.appendChild( this.cages[ i ].dom );
-		}
 
 		this.animals = [];
 
-		this.animals.push( new Animal( 'lion' ) );
-		this.animals.push( new Animal( 'tiger' ) );
-		this.animals.push( new Animal( 'bear' ) );
-		this.animals.push( new Animal( 'gorilla' ) );
+		this.animals.push( new Animal( 'Angry Lion', 'lion' ) );
+		this.animals.push( new Animal( 'Raging Tiger', 'tiger' ) );
+		this.animals.push( new Animal( 'Mauling Bear', 'bear' ) );
+		this.animals.push( new Animal( 'Rampaging Gorilla', 'gorilla' ) );
 
 
 	}
